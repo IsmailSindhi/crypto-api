@@ -1,8 +1,5 @@
 Flask
-keras
 matplotlib
-numpy
 pandas
 scikit-learn
-seaborn
 yfinance

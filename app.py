@@ -1,8 +1,7 @@
 from flask import Flask, request
-from model import value
+from model import result
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def home():
@@ -18,13 +17,12 @@ def predict():
 		
     crypto = request_data["crypto"]
     days = request_data["days"]
-    value = value(crypto, days)
-    response_body = {
-        "currency" : crypto,
-        "days" : days,
-        "value": value
-        }
+    value = result(crypto+"USD", days)
+    print(value)
+    response_body = value
     return response_body
+
+
 if __name__ == '__main__':
     app.run()
 
