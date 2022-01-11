@@ -11,7 +11,7 @@ yf.pdr_override()
 # BTC-USD
 def result(stock,days):
     end_date = dt.datetime.today()
-    start_date = end_date - dt.timedelta(days=120)
+    start_date = end_date - dt.timedelta(days=60)
     bitcoin = pdr.get_data_yahoo(stock, start_date, end_date)
     bitcoin.drop(columns='Adj Close', inplace=True)
     required_features = ['Open', 'High', 'Low', 'Volume']
