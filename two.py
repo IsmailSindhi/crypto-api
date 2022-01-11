@@ -11,9 +11,11 @@ bitcoin.drop(columns='Adj Close', inplace=True)
 len(bitcoin)
 required_features = ['Open', 'High', 'Low', 'Volume']
 future_set = bitcoin.shift(periods=0)
-print(future_set)
+# print(future_set)
 
 
 pklmodel = pickle.load(open('test.pkl','rb'))
 prediction = pklmodel.predict(future_set[required_features])
-print(prediction)
+
+print(' -------------------------------------')
+respone = prediction[-1]
