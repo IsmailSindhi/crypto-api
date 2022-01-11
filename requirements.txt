@@ -4,3 +4,4 @@ pandas
 scikit-learn
 yfinance
 gunicorn
+pandas_datareader
