@@ -14,16 +14,17 @@ def home():
 
 @app.route('/predict', methods = ['POST'])
 def predict():
-    if request.method == 'POST':
-        crypto = request.form["crypto"]
-        days = request.form["days"]
-        value = value(crypto, days)
-        response_body = {
-            "currency" : crypto,
-            "days" : days,
-            "value": value
+    request_data = request.get_json()
+		
+    crypto = request_data["crypto"]
+    days = request_data["days"]
+    value = value(crypto, days)
+    response_body = {
+        "currency" : crypto,
+        "days" : days,
+        "value": value
         }
-        return response_body
+    return response_body
 if __name__ == '__main__':
     app.run()
 
