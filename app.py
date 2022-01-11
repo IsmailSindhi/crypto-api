@@ -3,14 +3,6 @@ from model import result
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    if request.method == 'GET':
-        response_body = {
-            "value": "welcome to thinkfeat api"
-        }
-        return response_body
-
 @app.route('/predict', methods = ['POST'])
 def predict():
     request_data = request.get_json()
