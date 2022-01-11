@@ -24,7 +24,7 @@ def predict():
         value = result(crypto,days)
         response_body = {
             "currency" : crypto,
-            "days" : days,
+            "days" : int(days),
             "value": value
         }
         return response_body
