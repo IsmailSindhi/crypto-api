@@ -11,7 +11,7 @@ yf.pdr_override()
 # BTC-USD
 def result(stock,days):
     end_date = dt.datetime.today()
-    start_date = end_date - dt.timedelta(days=150)
+    start_date = end_date - dt.timedelta(days=120)
     bitcoin = pdr.get_data_yahoo(stock, start_date, end_date)
     bitcoin.drop(columns='Adj Close', inplace=True)
     required_features = ['Open', 'High', 'Low', 'Volume']
@@ -22,7 +22,7 @@ def result(stock,days):
     test_size = 0.3)
     model = LinearRegression()
     model.fit(x_train, y_train)
-    future_set = bitcoin.shift(periods=30).tail(30)
+    future_set = bitcoin.shift(periods=days).tail(30)
     prediction = model.predict(future_set[required_features])
     return prediction[days]
 
