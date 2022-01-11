@@ -12,7 +12,7 @@ import datetime as dt
 
 yf.pdr_override()
 # 'BTC-USD'
-def predict(crypto, days):
+def value(crypto, days):
     end_date = dt.datetime.today()
     start_date = dt.datetime(2017,1,1)
     stock = crypto

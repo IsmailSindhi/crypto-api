@@ -1,5 +1,5 @@
 from flask import Flask, request
-import model
+from model import value
 
 app = Flask(__name__)
 
@@ -17,7 +17,7 @@ def predict():
     if request.method == 'POST':
         crypto = request.form["crypto"]
         days = request.form["days"]
-        value = predict(crypto, days)
+        value = value(crypto, days)
         response_body = {
             "currency" : crypto,
             "days" : days,
